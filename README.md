@@ -2,21 +2,21 @@
 
 ## users テーブル
 
-| Column          | Type    | Options     |
-| --------------- | ------- | ----------- |
-| email           | string  | null: false |
-| password        | string  | null: false |
-| nickname        | string  | null: false |
-| last_name       | string  | null: false |
-| firse_nane      | string  | null: false |
-| last_name_kana  | string  | null: false |
-| first_name_kana | string  | null: false |
-| birthday        | date    | null: false |
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| email           | string | null: false |
+| password        | string | null: false |
+| nickname        | string | null: false |
+| last_name       | string | null: false |
+| first_name      | string | null: false |
+| last_name_kana  | string | null: false |
+| first_name_kana | string | null: false |
+| birthday        | date   | null: false |
 
 ### Association
 
 - has_many :items
-- has_many :purchases
+- has_many :orders
 
 ## items テーブル
 
@@ -35,9 +35,9 @@
 ### Association
 
 - belongs_to :user
-- has_one :purchase
+- has_one :order
 
-## purchases テーブル
+## orders テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
@@ -60,8 +60,8 @@
 | city          | string     | null: false                    |
 | province_id   | integer    | null: false                    |
 | tel           | string     | null: false                    |
-| purchase      | references | null: false, foreign_key: true |
+| order         | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :purchase
+- belongs_to :order

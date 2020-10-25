@@ -9,8 +9,9 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  validates :image, :name, :text, presence: true
+  with_options presence: true do
+    validates :image, :name, :text, :category, :condition, :postage, :province, :number_of_day
+  end
   validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
-  validates :category, :condition, :postage, :province, :number_of_day, presence: true
   validates :category_id, :condition_id, :postage_id, :province_id, :number_of_day_id, numericality: { other_than: 1 }
 end

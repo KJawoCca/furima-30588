@@ -7,6 +7,5 @@ FactoryBot.define do
     tel {12312341234}
     user_id { 3 }
     item_id { 3 }
-    purchase_id { 3 }
   end
 end

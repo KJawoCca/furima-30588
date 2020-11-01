@@ -6,8 +6,9 @@ class Order
   with_options presence: true do
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を入力してください' }
     validates :tel, format: { with: /\A\d{11}\z/, message: 'を入力してください（ハイフンは入力しないでください）' }
-    validates :address_line1, :city, :province_id
+    validates :address_line1, :city
   end
+  validates :province_id, numericality: { other_than: 1 }
 
   def save
     user = User.find(user_id)

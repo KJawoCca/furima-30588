@@ -7,5 +7,6 @@ FactoryBot.define do
     tel {12312341234}
     user_id { 3 }
     item_id { 3 }
+    token {"tok_abcdefghijk00000000000000000"}
   end
 end

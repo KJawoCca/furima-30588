@@ -1,12 +1,12 @@
 class Order
 
   include ActiveModel::Model
-  attr_accessor :postal_code, :address_line1, :address_line2, :city, :province_id, :tel, :user_id, :item_id
+  attr_accessor :postal_code, :address_line1, :address_line2, :city, :province_id, :tel, :user_id, :item_id, :token
 
   with_options presence: true do
     validates :postal_code, format: { with: /\A\d{3}[-]\d{4}\z/, message: 'を入力してください' }
     validates :tel, format: { with: /\A\d{11}\z/, message: 'を入力してください（ハイフンは入力しないでください）' }
-    validates :address_line1, :city
+    validates :address_line1, :city, :token
   end
   validates :province_id, numericality: { other_than: 1 }
 

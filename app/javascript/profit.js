@@ -13,4 +13,4 @@ function profitCalculation() {
   })
 };
 
-window.addEventListener('turbolinks:load', profitCalculation)
+window.addEventListener('load', profitCalculation)

@@ -6,7 +6,7 @@ RSpec.describe Order, type: :model do
       @order = FactoryBot.build(:order)
     end
 
-    it "配送先住所情報などの必要項目が全て正常に入力されていれば購入できること" do
+    it "配送先住所情報などの必要項目が全て正常に入力されていて、tokenが正しく取得できていれば購入できること" do
       expect(@order).to be_valid
     end
     
@@ -56,6 +56,12 @@ RSpec.describe Order, type: :model do
       @order.tel = "123123412345"
       @order.valid?
       expect(@order.errors.full_messages).to include("Tel を入力してください（ハイフンは入力しないでください）") 
+    end
+
+    it "tokenが空では登録できないこと" do
+      @order.token = nil
+      @order.valid?
+      expect(@order.errors.full_messages).to include("Token can't be blank")
     end
   end
 end
